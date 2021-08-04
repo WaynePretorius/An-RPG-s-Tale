@@ -57,6 +57,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Tags.cs" />
+    <Compile Include="Assets\Scripts\Shared\Mover.cs" />
+    <Compile Include="Assets\Scripts\Player\FollowCamera.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\Shared\Fighter.cs" />
+    <Compile Include="Assets\Scripts\Enemy\EnemyTarget.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\ImportedAssets\Synty - Polygon Student Sample\README - Usage Rights for these assets.txt" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
