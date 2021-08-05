@@ -3,4 +3,7 @@ public static class Tags
 {
     //AnimatorStates
     public static string ANIM_FORWARDSPEED = "forwardSpeed";
+    public static string ANIM_ATTACK = "isAttacking";
+    public static string ANIM_DIE = "isDying";
+    public static string ANIM_STOP_ATTACKING = "notAtticking";
 }

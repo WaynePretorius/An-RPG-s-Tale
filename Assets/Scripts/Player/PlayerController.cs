@@ -14,6 +14,8 @@ namespace RPG.Control
         private Mover mover;
         private Fighter fighter;
 
+        //states of the class
+
         private void Start()
         {
             Caches();
@@ -29,49 +31,50 @@ namespace RPG.Control
         // Update is called once per frame
         void Update()
         {
-            LookForEnemy();
-            LookForMoveMouseClick();
+            if (LookForEnemy()) return;
+            if (DetectCursorInputandMovePlayer()) return;
+            print("No hits from raycast");
         }
 
         //see if the enemy was clicked on
-        private void LookForEnemy()
+        private bool LookForEnemy()
         {
-            if (Input.GetMouseButtonDown(0))
-            {
-                RaycastHit[] hits = Physics.RaycastAll(GetMouseRay());
+           
+           RaycastHit[] hits = Physics.RaycastAll(GetMouseRay());
 
-                foreach (RaycastHit hit in hits)
+            foreach (RaycastHit hit in hits)
+            {
+                EnemyTarget target = hit.collider.gameObject.GetComponent<EnemyTarget>();
+
+                if (target == null) { continue; }
+                if (!fighter.CanAttack(target)) { continue; }
+
+                if (Input.GetMouseButtonDown(0))
                 {
-                    EnemyTarget target = hit.collider.gameObject.GetComponent<EnemyTarget>();
-
-                    if (target == null) { continue; }
-
-                        fighter.Attack(target);
-                    
+                    fighter.Attack(target);
                 }
+                return true;
             }
-        }
-
-        //moves the player to a target location
-        private void LookForMoveMouseClick()
-        {
-            if (Input.GetMouseButton(0))
-            {
-                DetectCursorInputandMovePlayer();
-            }
+            return false;
         }
 
         //detects where the mouse clicked and set that as the players destination
-        private void DetectCursorInputandMovePlayer()
+        private bool DetectCursorInputandMovePlayer()
         {
             RaycastHit hitInfo;
             bool hasHit = Physics.Raycast(GetMouseRay(), out hitInfo);
             if (hasHit)
             {
-                mover.MovePlayer(hitInfo.point);
+                if (Input.GetMouseButton(0))
+                {
+                    mover.StartMovingPlayer(hitInfo.point);
+                }
+                return true;
             }
+            return false;
         }
 
+        //get the raycast for the mouse
         private static Ray GetMouseRay()
         {
             return Camera.main.ScreenPointToRay(Input.mousePosition);
