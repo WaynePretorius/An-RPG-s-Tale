@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
-namespace RPG.Combat
+namespace RPG.Control
 {
     public class Health : MonoBehaviour
     {
@@ -14,7 +15,7 @@ namespace RPG.Combat
         public bool IsDead { get { return isDead; } }
 
         //gameStates
-        bool isDead = false;
+        [SerializeField] bool isDead = false;
 
         //deducts damage from health
         public void Damage(float damage)
@@ -32,11 +33,17 @@ namespace RPG.Combat
             if (isDead) return;
             if (!isDead)
             {
-                GetComponent<Animator>().SetTrigger(Tags.ANIM_DIE);
-                isDead = true;
-                GetComponent<Collider>().enabled = false;
+                StopandCancelComponents();
             }
         }
-            
+
+        private void StopandCancelComponents()
+        {
+            GetComponent<Animator>().SetTrigger(Tags.ANIM_DIE);
+            isDead = true;
+            GetComponent<Collider>().enabled = false;
+            GetComponent<CombatScheduler>().StopAction();
+            GetComponent<NavMeshAgent>().enabled = false;
+        }
     }
 }

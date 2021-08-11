@@ -13,12 +13,13 @@ namespace RPG.Combat
         [SerializeField] private float attackRange = 2f;
         [SerializeField] private float timeBetweenAttacks = 2f;
 
-        private float timeSinceLastAttack = 0f;
+        private float timeSinceLastAttack = Mathf.Infinity;
 
         //cached references
         private Transform currentTarget;
         private Mover mover;
         private Animator myAnim;
+        private Health health;
 
         //called on the first frame the class comes into play
         private void Start()
@@ -31,18 +32,28 @@ namespace RPG.Combat
         {
             mover = GetComponent<Mover>();
             myAnim = GetComponent<Animator>();
+            health = GetComponent<Health>();
         }
 
         //called every frame
         private void Update()
         {
-            UpdateTimer();
-            MoveToTargetForAttack();
-            StopAttackWhenDead();
+            CheckIfDead();
+        }
+
+        //see if the object has health left
+        private void CheckIfDead()
+        {
+            if (!health.IsDead)
+            {
+                UpdateTimer();
+                MoveToTargetForAttack();
+                StopAttackWhenDead();
+            }
         }
 
         //check if we can attack
-        public bool CanAttack(EnemyTarget enemy)
+        public bool CanAttack(GameObject enemy)
         {
             if(enemy == null) { return false; }
 
@@ -86,7 +97,7 @@ namespace RPG.Combat
         }
 
         //attacks the target
-        public void Attack(EnemyTarget target)
+        public void Attack(GameObject target)
         {
             GetComponent<CombatScheduler>().StartAction(this);
             currentTarget = target.transform;

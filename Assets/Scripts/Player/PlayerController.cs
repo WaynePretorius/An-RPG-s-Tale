@@ -13,6 +13,7 @@ namespace RPG.Control
         //Cached Reference
         private Mover mover;
         private Fighter fighter;
+        private Health health;
 
         //states of the class
 
@@ -26,12 +27,19 @@ namespace RPG.Control
         {
             mover = GetComponent<Mover>();
             fighter = GetComponent<Fighter>();
+            health = GetComponent<Health>();
         }
 
         // Update is called once per frame
         void Update()
         {
-            if (LookForEnemy()) return;
+            Checks();
+        }
+
+        //all checks that needs to be made
+        private void Checks()
+        {
+            if (LookForEnemy() && !health.IsDead) return;
             if (DetectCursorInputandMovePlayer()) return;
             print("No hits from raycast");
         }
@@ -46,12 +54,17 @@ namespace RPG.Control
             {
                 EnemyTarget target = hit.collider.gameObject.GetComponent<EnemyTarget>();
 
-                if (target == null) { continue; }
-                if (!fighter.CanAttack(target)) { continue; }
+                if(target == null) { continue; }
 
-                if (Input.GetMouseButtonDown(0))
+                GameObject attackTarget = target.gameObject;
+
+                if (target == null) { continue; }
+
+                if (!fighter.CanAttack(attackTarget)) { continue; }
+
+                if (Input.GetMouseButton(0))
                 {
-                    fighter.Attack(target);
+                    fighter.Attack(attackTarget);
                 }
                 return true;
             }

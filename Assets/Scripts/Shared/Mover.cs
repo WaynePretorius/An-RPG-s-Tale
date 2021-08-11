@@ -13,6 +13,9 @@ namespace RPG.Movement
         //cached references
         private Animator myAnim;
         private NavMeshAgent agent;
+        private Health health;
+
+        //states
 
         // Awake is the first method called
         private void Awake()
@@ -25,6 +28,7 @@ namespace RPG.Movement
         {
             agent = GetComponent<NavMeshAgent>();
             myAnim = GetComponent<Animator>();
+            health = GetComponent<Health>();
         }
 
         // Update is called once per frame
@@ -36,8 +40,11 @@ namespace RPG.Movement
         //moves the player and cancels attacks
         public void StartMovingPlayer(Vector3 destination)
         {
-            MovePlayer(destination);
-            GetComponent<CombatScheduler>().StartAction(this);
+            if (!health.IsDead)
+            {
+                MovePlayer(destination);
+                GetComponent<CombatScheduler>().StartAction(this);
+            }
         }
 
         //moves the player to a destination

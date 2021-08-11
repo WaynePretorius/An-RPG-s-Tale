@@ -6,4 +6,7 @@ public static class Tags
     public static string ANIM_ATTACK = "isAttacking";
     public static string ANIM_DIE = "isDying";
     public static string ANIM_STOP_ATTACKING = "notAtticking";
+
+    //Tags
+    public static string TAG_PLAYER = "Player";
 }

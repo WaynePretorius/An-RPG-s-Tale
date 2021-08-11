@@ -17,5 +17,10 @@ namespace RPG.Control
             }
             currentAction = action;
         }
+
+        public void StopAction()
+        {
+            StartAction(null);
+        }
     }
 }
