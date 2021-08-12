@@ -12,8 +12,10 @@ namespace RPG.Combat
         [Header("Fighter Settings")]
         [SerializeField] private float attackRange = 2f;
         [SerializeField] private float timeBetweenAttacks = 2f;
+        [SerializeField] private float damage = 10f;
 
         private float timeSinceLastAttack = Mathf.Infinity;
+        private float moveFraction = 1f;
 
         //cached references
         private Transform currentTarget;
@@ -72,7 +74,7 @@ namespace RPG.Combat
         {
             if (currentTarget != null)
             {
-                mover.MovePlayer(currentTarget.position);
+                mover.MovePlayer(currentTarget.position, moveFraction);
                 float distanceToTarget = Vector3.Distance(transform.position, currentTarget.position);
                 if(distanceToTarget <= attackRange)
                 {
@@ -115,13 +117,14 @@ namespace RPG.Combat
         public void Cancel()
         {
             StopAttack();
+            GetComponent<Mover>().Cancel();
         }
 
         //Animation Event Caller
         public void Hit()
         {
             if(currentTarget == null) { return; }
-            currentTarget.GetComponent<Health>().Damage(10);
+            currentTarget.GetComponent<Health>().Damage(damage);
         }
 
         //Stops the attack when the target is dead

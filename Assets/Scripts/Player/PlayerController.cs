@@ -9,6 +9,7 @@ namespace RPG.Control
     public class PlayerController : MonoBehaviour
     {
         //Variables Declared
+        private float playerMoveFraction = 1f;
 
         //Cached Reference
         private Mover mover;
@@ -80,7 +81,7 @@ namespace RPG.Control
             {
                 if (Input.GetMouseButton(0))
                 {
-                    mover.StartMovingPlayer(hitInfo.point);
+                    mover.StartMovingPlayer(hitInfo.point, playerMoveFraction);
                 }
                 return true;
             }

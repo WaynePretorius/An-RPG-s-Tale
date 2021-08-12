@@ -37,6 +37,7 @@ namespace RPG.Control
             }
         }
 
+        //stop and cancel all components on death
         private void StopandCancelComponents()
         {
             GetComponent<Animator>().SetTrigger(Tags.ANIM_DIE);

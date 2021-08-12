@@ -9,6 +9,8 @@ namespace RPG.Movement
     public class Mover : MonoBehaviour, Iaction
     {
         //variables declared at the start
+        [Header("Movement Settings")]
+        [SerializeField] private float maxSpeed = 5.66f;
 
         //cached references
         private Animator myAnim;
@@ -38,19 +40,24 @@ namespace RPG.Movement
         }
 
         //moves the player and cancels attacks
-        public void StartMovingPlayer(Vector3 destination)
+        public void StartMovingPlayer(Vector3 destination, float moveFraction)
         {
             if (!health.IsDead)
             {
-                MovePlayer(destination);
                 GetComponent<CombatScheduler>().StartAction(this);
+                MovePlayer(destination, moveFraction);
+            }
+            else
+            {
+                return;
             }
         }
 
         //moves the player to a destination
-        public void MovePlayer(Vector3 destination)
+        public void MovePlayer(Vector3 destination, float moveFraction)
         {
             agent.destination = destination;
+            agent.speed = maxSpeed * Mathf.Clamp01(moveFraction);
             agent.isStopped = false;
         }
 

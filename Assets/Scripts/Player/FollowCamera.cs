@@ -6,18 +6,21 @@ namespace RPG.Control
 {
     public class FollowCamera : MonoBehaviour
     {
-        [SerializeField] Transform target;
+        //variables declared
+        [Header("Camera Settings")]
+        [SerializeField] private float rotateSpeed = 5f;
 
-        // Update is called once per frame
+        // Update is called once per frame after any other update methods
         void LateUpdate()
         {
-            FollowPlayer();
+            RotatateCamera();
         }
 
-        //follows the player
-        private void FollowPlayer()
+        private void RotatateCamera()
         {
-            transform.position = target.position;
+            float axesRotate = Input.GetAxis(Tags.AXIS_HORIZONTAL) * rotateSpeed * Time.deltaTime;
+            Vector3 rotation = new Vector3(0, axesRotate, 0);
+            transform.Rotate(rotation);
         }
 
     }

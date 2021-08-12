@@ -16,6 +16,7 @@ namespace RPG.Control
         [SerializeField] private float returnToPostTime = 3f;
         [SerializeField] private float waypointTolerance = 1f;
         [SerializeField] private float dwellTime = 2f;
+        [Range(0,1)][SerializeField] private float patrolSpeedFraction = 0.2f;
 
         private float distanceToTarget = Mathf.Infinity;
         private float timeLastSeenPlayer = Mathf.Infinity;
@@ -23,7 +24,7 @@ namespace RPG.Control
         private int currentIndex = 0;
 
         //cached references
-        [Header("Ai Cache Settings")]
+        [Header("Ai Memory Settings")]
         [SerializeField] private PatrolPath path;
         private GameObject player;
         private Fighter fighter;
@@ -137,7 +138,7 @@ namespace RPG.Control
             }
             if (dwellTimer > dwellTime)
             {
-                mover.StartMovingPlayer(nextPos);
+                mover.StartMovingPlayer(nextPos, patrolSpeedFraction);
             }
         }
 

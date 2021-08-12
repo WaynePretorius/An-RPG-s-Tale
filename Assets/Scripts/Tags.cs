@@ -9,4 +9,7 @@ public static class Tags
 
     //Tags
     public static string TAG_PLAYER = "Player";
+
+    //Axis
+    public static string AXIS_HORIZONTAL = "Horizontal";
 }

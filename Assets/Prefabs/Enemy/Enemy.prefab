@@ -25,6 +25,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseDistance: 5
+  returnToPostTime: 3
+  waypointTolerance: 1
+  dwellTime: 2
+  patrolSpeedFraction: 0.2
+  path: {fileID: 0}
 --- !u!1001 &229249359419357756
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32,6 +37,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1919148249, guid: 5df61777b2973364787925a5a55bde61, type: 3}
+      propertyPath: maxSpeed
+      value: 4.8
+      objectReference: {fileID: 0}
     - target: {fileID: 2879107267125533384, guid: 5df61777b2973364787925a5a55bde61, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -90,7 +99,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6228335939635995136, guid: 5df61777b2973364787925a5a55bde61, type: 3}
       propertyPath: m_Speed
-      value: 3.22
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 6228335939635995136, guid: 5df61777b2973364787925a5a55bde61, type: 3}
       propertyPath: m_Acceleration
