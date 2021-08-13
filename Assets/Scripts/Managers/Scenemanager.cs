@@ -13,6 +13,7 @@ namespace RPG.SceneManagement
 
         //caches Referenced
         [SerializeField] private Transform spawnPoint;
+        [SerializeField] private PortalNumbers portalType;
 
         //when the collider has been triggered
         private void OnTriggerEnter(Collider other)
@@ -26,6 +27,12 @@ namespace RPG.SceneManagement
         //keep the portal until after the next scene has loaded
         private IEnumerator TransitionBetweenScenes()
         {
+            if(sceneToLoad < 0)
+            {
+                Debug.LogError("No scene to load");
+                yield break;
+            }
+
             DontDestroyOnLoad(gameObject);
             yield return SceneManager.LoadSceneAsync(sceneToLoad);
             Scenemanager otherPortal = GetOtherPortal();
@@ -39,6 +46,7 @@ namespace RPG.SceneManagement
             foreach(Scenemanager portal in FindObjectsOfType<Scenemanager>())
             {
                 if (portal == this) { continue; }
+                if (portal.portalType != portalType) { continue; }
 
                 return portal;
             }
@@ -54,4 +62,9 @@ namespace RPG.SceneManagement
             player.transform.rotation = otherPortal.spawnPoint.rotation;
         }
     }
+}
+
+public enum PortalNumbers
+{
+    A, B, C, D, E
 }
