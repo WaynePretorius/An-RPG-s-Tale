@@ -9,7 +9,11 @@ namespace RPG.SceneManagement
     public class Scenemanager : MonoBehaviour
     {
         //variables decalred
+        [Header("Scene Transition Settings")]
         [SerializeField] private int sceneToLoad = -1;
+        [SerializeField] private float fadeInTime = 1.5f;
+        [SerializeField] private float fadeOutTime = 3f;
+        [SerializeField] private float fadeWaitTime = 0.5f;
 
         //caches Referenced
         [SerializeField] private Transform spawnPoint;
@@ -34,9 +38,18 @@ namespace RPG.SceneManagement
             }
 
             DontDestroyOnLoad(gameObject);
+
+            Fader fader = FindObjectOfType<Fader>();
+            yield return fader.FadeOut(fadeOutTime);
+
             yield return SceneManager.LoadSceneAsync(sceneToLoad);
+
             Scenemanager otherPortal = GetOtherPortal();
             UpdatePlayer(otherPortal);
+
+            yield return new WaitForSeconds(fadeWaitTime);
+            yield return fader.FadeIn(fadeInTime);
+
             Destroy(gameObject);
         }
 
