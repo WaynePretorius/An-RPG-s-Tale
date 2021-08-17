@@ -12,4 +12,7 @@ public static class Tags
 
     //Axis
     public static string AXIS_HORIZONTAL = "Horizontal";
+
+    //Editer References
+    public static string EDIT_ID = "uniqueID";
 }

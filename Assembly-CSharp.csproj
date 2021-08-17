@@ -59,6 +59,7 @@
     <Compile Include="Assets\Scripts\Other\CinematicsControlRemover.cs" />
     <Compile Include="Assets\Scripts\Shared\Mover.cs" />
     <Compile Include="Assets\Scripts\Tags.cs" />
+    <Compile Include="Assets\Scripts\Managers\PersistantObject.cs" />
     <Compile Include="Assets\Scripts\Other\Cinematics.cs" />
     <Compile Include="Assets\Scripts\Shared\Fighter.cs" />
     <Compile Include="Assets\Scripts\Player\FollowCamera.cs" />
@@ -67,11 +68,14 @@
     <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Managers\Scenemanager.cs" />
     <Compile Include="Assets\Scripts\Managers\CombatScheduler.cs" />
+    <Compile Include="Assets\Scripts\Other\Fader.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyAI.cs" />
     <Compile Include="Assets\Scripts\Managers\PatrolPath.cs" />
     <Compile Include="Assets\Scripts\Managers\Iaction.cs" />
-    <Compile Include="Assets\Scripts\Other\Fader.cs" />
-    <Compile Include="Assets\Scripts\Managers\PersistantObject.cs" />
+    <Compile Include="Assets\Scripts\Saving\SavingSystem.cs" />
+    <Compile Include="Assets\Scripts\Saving\SavingWrapper.cs" />
+    <Compile Include="Assets\Scripts\Saving\Vector3Serializer.cs" />
+    <Compile Include="Assets\Scripts\Saving\SaveableEntity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\ImportedAssets\Synty - Polygon Student Sample\README - Usage Rights for these assets.txt" />

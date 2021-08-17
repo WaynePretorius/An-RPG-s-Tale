@@ -113,6 +113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 111d8be3d3d03c84dabfa2c9113bb0db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxSpeed: 5.66
 --- !u!95 &2736319265999786538
 Animator:
   serializedVersion: 3
@@ -146,6 +147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackRange: 2
   timeBetweenAttacks: 2
+  damage: 10
 --- !u!114 &2865648492465760625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,4 +186,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4b5907137b1cfd44bf8decdeceb0176, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  currentHealth: 100
+  isDead: 0
