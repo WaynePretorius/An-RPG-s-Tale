@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using RPG.Control;
+using RPG.Saving;
 
 namespace RPG.Movement
 {
-    public class Mover : MonoBehaviour, Iaction
+    public class Mover : MonoBehaviour, Iaction, ISavable
     {
         //variables declared at the start
         [Header("Movement Settings")]
@@ -86,6 +87,22 @@ namespace RPG.Movement
         public void Cancel()
         {
             StopPlayer();
+        }
+
+        //Capture the current state
+        public object CaptureState()
+        {
+            return new Vector3Serializer(transform.position);
+        }
+
+        //restore the captured state
+        public void RestoreState(object state)
+        {
+            Vector3Serializer unitPos = (Vector3Serializer)state;
+            GetComponent<NavMeshAgent>().enabled = false;
+            transform.position = unitPos.ToVector();
+            GetComponent<NavMeshAgent>().enabled = true;
+            GetComponent<CombatScheduler>().StopAction();
         }
     }
 }

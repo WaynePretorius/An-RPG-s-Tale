@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class Fader : MonoBehaviour
 {
-    [Header("Fader Settings")]
     private CanvasGroup canvasGroup;
 
-    // Start is called before the first frame update
-    void Start()
+    // Awake is called before any other
+    private void Awake()
     {
         canvasGroup = GetComponent<CanvasGroup>();
     }
 
+    //immediately turns the screen white
+    public void ImmediateWhite()
+    {
+        canvasGroup.alpha = 1;
+    }
+
+    //fade the canvas out
     public IEnumerator FadeOut(float fadeTime)
     {
         while(canvasGroup.alpha < 1)
@@ -22,6 +28,7 @@ public class Fader : MonoBehaviour
         }
     }
 
+    //fade the canvas in
     public IEnumerator FadeIn(float fadeTime)
     {
         while (canvasGroup.alpha > 0f)

@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using RPG.Saving;
 
 namespace RPG.Control
 {
-    public class Health : MonoBehaviour
+    public class Health : MonoBehaviour, ISavable
     {
         //variables declared
         [SerializeField] private float currentHealth = 100f;
@@ -45,6 +46,22 @@ namespace RPG.Control
             GetComponent<Collider>().enabled = false;
             GetComponent<CombatScheduler>().StopAction();
             GetComponent<NavMeshAgent>().enabled = false;
+        }
+
+        public object CaptureState()
+        {
+            return currentHealth;
+        }
+
+        //restore the captured state
+        public void RestoreState(object state)
+        {
+            float unitHealth = (float)state;
+            currentHealth = unitHealth;
+            if(currentHealth <= 0)
+            {
+                Die();
+            }
         }
     }
 }

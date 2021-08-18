@@ -106,4 +106,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: -1
+  fadeInTime: 2
+  fadeOutTime: 1.5
+  fadeWaitTime: 0.5
+  fileName: autoSave
   spawnPoint: {fileID: 2092931968935499857}
+  portalType: 0

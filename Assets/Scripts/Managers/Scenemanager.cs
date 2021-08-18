@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.AI;
+using RPG.Saving;
 
 namespace RPG.SceneManagement
 {
@@ -14,6 +15,7 @@ namespace RPG.SceneManagement
         [SerializeField] private float fadeInTime = 1.5f;
         [SerializeField] private float fadeOutTime = 3f;
         [SerializeField] private float fadeWaitTime = 0.5f;
+        [SerializeField] private string fileName = "autoSave";
 
         //caches Referenced
         [SerializeField] private Transform spawnPoint;
@@ -40,12 +42,20 @@ namespace RPG.SceneManagement
             DontDestroyOnLoad(gameObject);
 
             Fader fader = FindObjectOfType<Fader>();
+            SavingWrapper save = FindObjectOfType<SavingWrapper>();
+
             yield return fader.FadeOut(fadeOutTime);
+
+            save.Save(fileName);
 
             yield return SceneManager.LoadSceneAsync(sceneToLoad);
 
+            save.Load(fileName);
+
             Scenemanager otherPortal = GetOtherPortal();
             UpdatePlayer(otherPortal);
+
+            save.Save(fileName);
 
             yield return new WaitForSeconds(fadeWaitTime);
             yield return fader.FadeIn(fadeInTime);
@@ -71,8 +81,10 @@ namespace RPG.SceneManagement
         private void UpdatePlayer(Scenemanager otherPortal)
         {
             GameObject player = GameObject.FindWithTag(Tags.TAG_PLAYER);
+            player.GetComponent<NavMeshAgent>().enabled = false;
             player.GetComponent<NavMeshAgent>().Warp(otherPortal.spawnPoint.position);
             player.transform.rotation = otherPortal.spawnPoint.rotation;
+            player.GetComponent<NavMeshAgent>().enabled = true;
         }
     }
 }

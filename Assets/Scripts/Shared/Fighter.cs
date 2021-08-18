@@ -10,23 +10,27 @@ namespace RPG.Combat
     {
         //variables declared
         [Header("Fighter Settings")]
-        [SerializeField] private float attackRange = 2f;
         [SerializeField] private float timeBetweenAttacks = 2f;
-        [SerializeField] private float damage = 10f;
 
         private float timeSinceLastAttack = Mathf.Infinity;
         private float moveFraction = 1f;
 
         //cached references
+        [Header("fighter caches")]
+        [SerializeField] Transform handHiltForWeapon;
+        [SerializeField] Weapons defaultWeapon = null;
+
         private Transform currentTarget;
         private Mover mover;
         private Animator myAnim;
         private Health health;
+        private Weapons currentWeapon = null;
 
         //called on the first frame the class comes into play
         private void Start()
         {
             Cached();
+            EquiptWeapon(defaultWeapon);
         }
 
         //gets the referenced components
@@ -76,7 +80,7 @@ namespace RPG.Combat
             {
                 mover.MovePlayer(currentTarget.position, moveFraction);
                 float distanceToTarget = Vector3.Distance(transform.position, currentTarget.position);
-                if(distanceToTarget <= attackRange)
+                if(distanceToTarget <= currentWeapon.WeaponRange)
                 {
                     mover.StopPlayer();
                     AttackSequence();
@@ -124,7 +128,7 @@ namespace RPG.Combat
         public void Hit()
         {
             if(currentTarget == null) { return; }
-            currentTarget.GetComponent<Health>().Damage(damage);
+            currentTarget.GetComponent<Health>().Damage(currentWeapon.WeaponDamage);
         }
 
         //Stops the attack when the target is dead
@@ -136,6 +140,14 @@ namespace RPG.Combat
                 StopAttack();
             }
 
+        }
+
+        //calls the weapon to spawn
+        public void EquiptWeapon(Weapons weapon)
+        {
+            if(weapon == null) { return; }
+            currentWeapon = weapon;
+            weapon.SpawnWeapon(handHiltForWeapon, myAnim);
         }
     }
 }

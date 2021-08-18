@@ -12,6 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 914195af66a14e7478c09b4082e0d65b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!54 &2222089792997682847
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8150042558947964526}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &484283840858246813
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -73,6 +89,11 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: bfbe2e8b331e2cc42be1591f949c0e41, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30cf93deff988e74e88a144bd2127c18, type: 3}
+--- !u!4 &484283840858634643 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 423694, guid: 30cf93deff988e74e88a144bd2127c18, type: 3}
+  m_PrefabInstance: {fileID: 484283840858246813}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6901129628297781386
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -80,6 +101,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -2552313661289848050, guid: 5df61777b2973364787925a5a55bde61, type: 3}
+      propertyPath: uniqueID
+      value: player
+      objectReference: {fileID: 0}
     - target: {fileID: 2879107267125533384, guid: 5df61777b2973364787925a5a55bde61, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -144,6 +169,22 @@ PrefabInstance:
       propertyPath: m_Center.y
       value: 0.87
       objectReference: {fileID: 0}
+    - target: {fileID: 7823526850800786736, guid: 5df61777b2973364787925a5a55bde61, type: 3}
+      propertyPath: animOverride
+      value: 
+      objectReference: {fileID: 22100000, guid: 817a4e4436435474f9bec393fdec2b2b, type: 2}
+    - target: {fileID: 7823526850800786736, guid: 5df61777b2973364787925a5a55bde61, type: 3}
+      propertyPath: weaponPrefab
+      value: 
+      objectReference: {fileID: 5417985585762962273, guid: 9eeb1b6d89c57c444b62d26581a5a66f, type: 3}
+    - target: {fileID: 7823526850800786736, guid: 5df61777b2973364787925a5a55bde61, type: 3}
+      propertyPath: defaultWeapon
+      value: 
+      objectReference: {fileID: 11400000, guid: 5bde56bdc21e5da48b9e296f9c02428c, type: 2}
+    - target: {fileID: 7823526850800786736, guid: 5df61777b2973364787925a5a55bde61, type: 3}
+      propertyPath: handHiltForWeapon
+      value: 
+      objectReference: {fileID: 484283840858634643}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5df61777b2973364787925a5a55bde61, type: 3}
 --- !u!1 &8150042558947964526 stripped

@@ -15,4 +15,7 @@ public static class Tags
 
     //Editer References
     public static string EDIT_ID = "uniqueID";
+
+    //states
+    public static string STATE_CUR_SCENE = "scenebuildindex";
 }
