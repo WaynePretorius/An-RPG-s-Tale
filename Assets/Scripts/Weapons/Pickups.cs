@@ -12,7 +12,7 @@ namespace RPG.Combat {
             if(other.tag == Tags.TAG_PLAYER)
             {
                 other.gameObject.GetComponent<Fighter>().EquiptWeapon(weapon);
-                Destroy(gameObject, 0.5f);
+                Destroy(gameObject);
             }
         }
 

@@ -17,7 +17,8 @@ namespace RPG.Combat
 
         //cached references
         [Header("fighter caches")]
-        [SerializeField] Transform handHiltForWeapon;
+        [SerializeField] Transform rightHandTransform;
+        [SerializeField] Transform leftHandTransform;
         [SerializeField] Weapons defaultWeapon = null;
 
         private Transform currentTarget;
@@ -127,8 +128,28 @@ namespace RPG.Combat
         //Animation Event Caller
         public void Hit()
         {
-            if(currentTarget == null) { return; }
-            currentTarget.GetComponent<Health>().Damage(currentWeapon.WeaponDamage);
+            if (currentTarget == null) { return; }
+            Health theTarget = currentTarget.GetComponent<Health>();
+            MeleeOrRanged(theTarget);
+        }
+
+        //see if the weapon is melee or ranged
+        private void MeleeOrRanged(Health theTarget)
+        {
+            if (currentWeapon.HasProjectile())
+            {
+                currentWeapon.InstantiateProjectile(rightHandTransform, leftHandTransform, theTarget);
+            }
+            else
+            {
+                theTarget.Damage(currentWeapon.WeaponDamage);
+            }
+        }
+
+        //Ranged Animation Event Caller
+        public void Shoot()
+        {
+            Hit();
         }
 
         //Stops the attack when the target is dead
@@ -147,7 +168,7 @@ namespace RPG.Combat
         {
             if(weapon == null) { return; }
             currentWeapon = weapon;
-            weapon.SpawnWeapon(handHiltForWeapon, myAnim);
+            weapon.SpawnWeapon(rightHandTransform, leftHandTransform, myAnim);
         }
     }
 }

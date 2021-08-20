@@ -1,17 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &4904566011550630325
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8150042558947964526}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 914195af66a14e7478c09b4082e0d65b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &2222089792997682847
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -28,6 +16,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &4904566011550630325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8150042558947964526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 914195af66a14e7478c09b4082e0d65b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &484283840858246813
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -89,6 +89,11 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: bfbe2e8b331e2cc42be1591f949c0e41, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30cf93deff988e74e88a144bd2127c18, type: 3}
+--- !u!4 &484283840858560913 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 481036, guid: 30cf93deff988e74e88a144bd2127c18, type: 3}
+  m_PrefabInstance: {fileID: 484283840858246813}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &484283840858634643 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 423694, guid: 30cf93deff988e74e88a144bd2127c18, type: 3}
@@ -183,6 +188,14 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 5bde56bdc21e5da48b9e296f9c02428c, type: 2}
     - target: {fileID: 7823526850800786736, guid: 5df61777b2973364787925a5a55bde61, type: 3}
       propertyPath: handHiltForWeapon
+      value: 
+      objectReference: {fileID: 484283840858634643}
+    - target: {fileID: 7823526850800786736, guid: 5df61777b2973364787925a5a55bde61, type: 3}
+      propertyPath: leftHandTransform
+      value: 
+      objectReference: {fileID: 484283840858560913}
+    - target: {fileID: 7823526850800786736, guid: 5df61777b2973364787925a5a55bde61, type: 3}
+      propertyPath: rightHandTransform
       value: 
       objectReference: {fileID: 484283840858634643}
     m_RemovedComponents: []

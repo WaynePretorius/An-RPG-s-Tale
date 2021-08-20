@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f8787b88d9a4494487d755ea562bf68, type: 3}
+  m_Name: Firebolt
+  m_EditorClassIdentifier: 
+  weaponDamage: 8
+  weaponRange: 10
+  weaponPrefab: {fileID: 5795292207014880539, guid: 54660a46115c8a44395c223e4402793a, type: 3}
+  animOverride: {fileID: 22100000, guid: 795aaaa8984d63d43b184591290d35bb, type: 2}
+  projectile: {fileID: 2846324458017615711, guid: 4948d8ac7eb1d8f4b9767c7beeb58403, type: 3}
+  isRightHanded: 1

@@ -1,0 +1,137 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &2393997696333660277
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4243417825380885312}
+    m_Modifications:
+    - target: {fileID: 6331081726600918152, guid: 7e2423ff09841674d9303953297c9949, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6331081726600918152, guid: 7e2423ff09841674d9303953297c9949, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6331081726600918152, guid: 7e2423ff09841674d9303953297c9949, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.045
+      objectReference: {fileID: 0}
+    - target: {fileID: 6331081726600918152, guid: 7e2423ff09841674d9303953297c9949, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6331081726600918152, guid: 7e2423ff09841674d9303953297c9949, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6331081726600918152, guid: 7e2423ff09841674d9303953297c9949, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6331081726600918152, guid: 7e2423ff09841674d9303953297c9949, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6331081726600918152, guid: 7e2423ff09841674d9303953297c9949, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6331081726600918152, guid: 7e2423ff09841674d9303953297c9949, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 6331081726600918152, guid: 7e2423ff09841674d9303953297c9949, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6331081726600918152, guid: 7e2423ff09841674d9303953297c9949, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6331081726601071512, guid: 7e2423ff09841674d9303953297c9949, type: 3}
+      propertyPath: m_Name
+      value: SM_Wep_Sword_01
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7e2423ff09841674d9303953297c9949, type: 3}
+--- !u!1001 &3562068591627350665
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 832220924423262664, guid: e6f99543513d0c446b682885101caede, type: 3}
+      propertyPath: m_Name
+      value: Sword Pick Up
+      objectReference: {fileID: 0}
+    - target: {fileID: 832220924423262665, guid: e6f99543513d0c446b682885101caede, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 832220924423262665, guid: e6f99543513d0c446b682885101caede, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 832220924423262665, guid: e6f99543513d0c446b682885101caede, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 832220924423262665, guid: e6f99543513d0c446b682885101caede, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 832220924423262665, guid: e6f99543513d0c446b682885101caede, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 832220924423262665, guid: e6f99543513d0c446b682885101caede, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 832220924423262665, guid: e6f99543513d0c446b682885101caede, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 832220924423262665, guid: e6f99543513d0c446b682885101caede, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 832220924423262665, guid: e6f99543513d0c446b682885101caede, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 832220924423262665, guid: e6f99543513d0c446b682885101caede, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 832220924423262665, guid: e6f99543513d0c446b682885101caede, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 832220924423262665, guid: e6f99543513d0c446b682885101caede, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 832220924423262665, guid: e6f99543513d0c446b682885101caede, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 832220924423262665, guid: e6f99543513d0c446b682885101caede, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 832220924423262666, guid: e6f99543513d0c446b682885101caede, type: 3}
+      propertyPath: weapon
+      value: 
+      objectReference: {fileID: 11400000, guid: 7938071c1885f3e4e99918c48194aa69, type: 2}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e6f99543513d0c446b682885101caede, type: 3}
+--- !u!4 &4243417825380885312 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 832220924423262665, guid: e6f99543513d0c446b682885101caede, type: 3}
+  m_PrefabInstance: {fileID: 3562068591627350665}
+  m_PrefabAsset: {fileID: 0}

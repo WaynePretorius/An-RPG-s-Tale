@@ -18,4 +18,8 @@ public static class Tags
 
     //states
     public static string STATE_CUR_SCENE = "scenebuildindex";
+
+    //ObjectsName
+    public static string OBJ_WEAPON = "Weapons";
+    public static string OBJ_DESTROY = "Destroying";
 }
